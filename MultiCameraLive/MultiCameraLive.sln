@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultiCameraLive", "MultiCameraLive\MultiCameraLive.csproj", "{3B5BB0DF-AB6C-4D0A-BD1A-AAD7834D6A51}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DoubleCameraLiveSetup", "DoubleCameraLiveSetup\DoubleCameraLiveSetup.vdproj", "{210DA775-5C75-4035-81E0-2CA8D47CA5B9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B5BB0DF-AB6C-4D0A-BD1A-AAD7834D6A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B5BB0DF-AB6C-4D0A-BD1A-AAD7834D6A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B5BB0DF-AB6C-4D0A-BD1A-AAD7834D6A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B5BB0DF-AB6C-4D0A-BD1A-AAD7834D6A51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{210DA775-5C75-4035-81E0-2CA8D47CA5B9}.Debug|Any CPU.ActiveCfg = Debug
+		{210DA775-5C75-4035-81E0-2CA8D47CA5B9}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
