@@ -13,6 +13,7 @@ using AForge.Video;
 using AForge.Video.DirectShow;
 using Size = System.Drawing.Size;
 using Point = System.Drawing.Point;
+using System.Threading;
 
 namespace MultiCameraLive
 {
@@ -26,6 +27,8 @@ namespace MultiCameraLive
 
         //是否正在拖拽
         bool isDrag = false;
+
+        //
 
         public Form1()
         {
@@ -69,6 +72,7 @@ namespace MultiCameraLive
                 //重新设置rect的位置,跟随鼠标移动
                 rect.Location = getPointToForm(new Point(e.Location.X - mouseDownPoint.X, e.Location.Y - mouseDownPoint.Y));
                 subPlayer.Location = rect.Location;
+                groupBox2.Location = getPointToForm(new Point(e.Location.X - mouseDownPoint.X, e.Location.Y - mouseDownPoint.Y));
                 this.Refresh();
             }
         }
@@ -158,6 +162,7 @@ namespace MultiCameraLive
                 }
         }
 
+
         private void closeCamera(object sender, FormClosingEventArgs e)
         {
             mainPlayer.SignalToStop();
@@ -172,6 +177,7 @@ namespace MultiCameraLive
         {
             isShowSubPlayer = !isShowSubPlayer;
             subPlayer.Visible = isShowSubPlayer;
+            groupBox2.Visible = false;
             if (isShowSubPlayer) {
                 button1.Text = "小窗口/开";
             }
@@ -183,7 +189,7 @@ namespace MultiCameraLive
 
         private void mainCameraList_SelectedIndexChanged(object sender, EventArgs e)
         {
-             if(mainCameraList.SelectedIndex >= -1)
+            if (mainCameraList.SelectedIndex >= -1)
             {
                 mainPlayer.SignalToStop();
                 mainPlayer.WaitForStop();
@@ -210,7 +216,6 @@ namespace MultiCameraLive
                     subPlayer.VideoSource = subVideoSource;
                     subPlayer.Start();
                 }
-               
             }
         }
 
@@ -225,7 +230,15 @@ namespace MultiCameraLive
                 subPlayer.WaitForStop();
                 subPlayer.Stop();
 
-                if((mainCameraList.SelectedIndex > -1))
+                FilterInfo subInfo;
+                subInfo = videoDevices[subCameraList.SelectedIndex];
+                VideoCaptureDevice subVideoSource = new VideoCaptureDevice(videoDevices[subCameraList.SelectedIndex].MonikerString);
+                subVideoSource.DesiredFrameSize = new System.Drawing.Size(214, 281);
+                subVideoSource.DesiredFrameRate = 1;
+                subPlayer.VideoSource = subVideoSource;
+                subPlayer.Start();
+
+                if ((mainCameraList.SelectedIndex > -1))
                 {
                     FilterInfo info;
                     info = videoDevices[mainCameraList.SelectedIndex];
@@ -235,15 +248,42 @@ namespace MultiCameraLive
                     mainPlayer.VideoSource = videoSource;
                     mainPlayer.Start();
                 }
-
-                FilterInfo subInfo;
-                subInfo = videoDevices[subCameraList.SelectedIndex];
-                VideoCaptureDevice subVideoSource = new VideoCaptureDevice(videoDevices[subCameraList.SelectedIndex].MonikerString);
-                subVideoSource.DesiredFrameSize = new System.Drawing.Size(214, 281);
-                subVideoSource.DesiredFrameRate = 1;
-                subPlayer.VideoSource = subVideoSource;
-                subPlayer.Start();
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            groupBox2.Location = subPlayer.Location;
+        }
+
+
+        //点击关闭副画面菜单按键
+        private void button2_Click(object sender, EventArgs e)
+        {
+            groupBox2.Visible = false;
+        }
+
+ 
+
+
+        private void subPlayer_MouseClick(object sender, MouseEventArgs e)
+        {
+            groupBox2.Visible = true;
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            groupBox2.Location = subPlayer.Location;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            groupBox1.Visible = false;
+        }
+
+        private void mainPlayer_DoubleClick(object sender, EventArgs e)
+        {
+            groupBox1.Visible = true;
         }
     }
 }
