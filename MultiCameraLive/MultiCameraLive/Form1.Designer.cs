@@ -59,6 +59,9 @@
             this.subPlayer.TabIndex = 1;
             this.subPlayer.Text = "videoSourcePlayer1";
             this.subPlayer.VideoSource = null;
+            this.subPlayer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.subPlayer_MouseDown);
+            this.subPlayer.MouseMove += new System.Windows.Forms.MouseEventHandler(this.subPlayer_MouseMove);
+            this.subPlayer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.subPlayer_MouseUp);
             // 
             // mainCameraList
             // 
@@ -129,6 +132,7 @@
             this.Name = "Form1";
             this.Text = "双画面直播";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.closeCamera);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);

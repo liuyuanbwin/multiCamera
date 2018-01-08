@@ -12,16 +12,97 @@ using AForge.Controls;
 using AForge.Video;
 using AForge.Video.DirectShow;
 using Size = System.Drawing.Size;
+using Point = System.Drawing.Point;
 
 namespace MultiCameraLive
 {
     public partial class Form1 : Form
     {
+        //鼠标按下坐标
+        Point mouseDownPoint = Point.Empty;
+
+        //显示拖动效果的矩形
+        Rectangle rect = Rectangle.Empty;
+
+        //是否正在拖拽
+        bool isDrag = false;
+
         public Form1()
         {
             InitializeComponent();
             InitCamera();
         }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+            if(rect != Rectangle.Empty)
+            {
+                if(isDrag)
+                {
+                    //画一个和control一样大小的黑框
+                    e.Graphics.DrawRectangle(Pens.Black, rect);
+                }
+                else
+                {
+                    e.Graphics.DrawRectangle(new Pen(this.BackColor), rect);
+                }
+            }
+        }
+
+        //按下鼠标时
+        private void subPlayer_MouseDown(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                mouseDownPoint = e.Location;
+                //记录控件的大小
+                rect = subPlayer.Bounds;
+            }
+        }
+
+        //鼠标移动时
+        private void subPlayer_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                isDrag = true;
+                //重新设置rect的位置,跟随鼠标移动
+                rect.Location = getPointToForm(new Point(e.Location.X - mouseDownPoint.X, e.Location.Y - mouseDownPoint.Y));
+                subPlayer.Location = rect.Location;
+                this.Refresh();
+            }
+        }
+
+        //鼠标放开时
+        private void subPlayer_MouseUp(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                if(isDrag)
+                {
+                    isDrag = false;
+                    //移动control 到放开鼠标的敌法
+                    subPlayer.Location = rect.Location;
+                    this.Refresh();
+                }
+                reset();
+            }
+        }
+
+        //重置变量
+        private void reset()
+        {
+            mouseDownPoint = Point.Empty;
+            rect = Rectangle.Empty;
+            isDrag = false;
+        }
+
+        //把相对control控件的坐标,转换成相对于窗体的坐标
+        private Point getPointToForm(Point p)
+        {
+            return this.PointToClient(subPlayer.PointToScreen(p));
+        }
+
         private FilterInfoCollection videoDevices;//摄像机数组
         private Boolean isShowSubPlayer;  //是否显示小窗口
         //初始化摄像头
