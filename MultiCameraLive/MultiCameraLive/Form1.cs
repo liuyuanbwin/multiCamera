@@ -206,6 +206,8 @@ namespace MultiCameraLive
                 mainPlayer.VideoSource = videoSource;
                 mainPlayer.Start();
 
+                Thread.Sleep(500);
+
                 if((subCameraList.SelectedIndex > -1))
                 {
                     FilterInfo subInfo;
@@ -237,6 +239,8 @@ namespace MultiCameraLive
                 subVideoSource.DesiredFrameRate = 1;
                 subPlayer.VideoSource = subVideoSource;
                 subPlayer.Start();
+
+                Thread.Sleep(500);
 
                 if ((mainCameraList.SelectedIndex > -1))
                 {
