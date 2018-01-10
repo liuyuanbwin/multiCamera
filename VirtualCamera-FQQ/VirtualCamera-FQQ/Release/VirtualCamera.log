@@ -1,6 +1,14 @@
-﻿  DibHelper.cpp
-  Dll.cpp
-Dll.cpp(21): fatal error C1083: 无法打开包括文件: “streams.h”: No such file or directory
-  Filter.cpp
-c:\users\ztzh\desktop\virtualcamera-fqq\virtualcamera-fqq\Filter.h(1): fatal error C1083: 无法打开包括文件: “streams.h”: No such file or directory
-  正在生成代码...
+﻿  LINK : 没有找到 VCamR.ax 或上一个增量链接没有生成它；正在执行完全链接
+    正在创建库 .\Release\VCam.lib 和对象 .\Release\VCam.exp
+VCam.exp : warning LNK4070: .EXP 中的 /OUT:VCam.ax 指令与输出文件名“VCamR.ax”不同；忽略指令
+strmbase.lib(amfilter.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(amfilter.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(amvideo.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(amvideo.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(combase.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(combase.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(dllentry.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(dllentry.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(dllsetup.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(dllsetup.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(mtype.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(mtype.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(source.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(source.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(winutil.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(winutil.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(wxlist.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(wxlist.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(wxutil.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(wxutil.obj)”或在“C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  VirtualCamera.vcxproj -> C:\Users\Administrator\Documents\GitHub\multiCamera\VirtualCamera-FQQ\VirtualCamera-FQQ\.\VCamR.ax

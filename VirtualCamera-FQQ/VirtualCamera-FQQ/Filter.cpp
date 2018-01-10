@@ -442,11 +442,12 @@ HRESULT CVCamPin::FillBuffer(IMediaSample *pSample)
 	BYTE *pData;
 	long cbData;
 
+	
 	HWND doubleCameraWindow = FindWindow(NULL, "Ë«»­ÃæÖ±²¥");
 	HDC hScrDC = GetDC(doubleCameraWindow);
 	RECT llpRect;
 	GetWindowRect(doubleCameraWindow, &llpRect);
-
+	
 
 
 
@@ -473,8 +474,8 @@ HRESULT CVCamPin::FillBuffer(IMediaSample *pSample)
 
 	 //  HDIB hDib = CopyScreenToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
 	HDIB hDib = CopyPlayerToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
-	   if (hDib)
-	        DeleteObject(hDib);
+	//   if (hDib)
+	//        DeleteObject(hDib);
 
 	// Set the timestamps that will govern playback frame rate.
 	// If this file is getting written out as an AVI,
