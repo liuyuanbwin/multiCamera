@@ -49,7 +49,7 @@
             this.mainPlayer.Location = new System.Drawing.Point(0, 1);
             this.mainPlayer.Margin = new System.Windows.Forms.Padding(0);
             this.mainPlayer.Name = "mainPlayer";
-            this.mainPlayer.Size = new System.Drawing.Size(874, 561);
+            this.mainPlayer.Size = new System.Drawing.Size(466, 281);
             this.mainPlayer.TabIndex = 0;
             this.mainPlayer.Text = "videoSourcePlayer1";
             this.mainPlayer.VideoSource = null;
@@ -130,7 +130,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.subCameraList);
-            this.groupBox2.Location = new System.Drawing.Point(299, 146);
+            this.groupBox2.Location = new System.Drawing.Point(139, -14);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(109, 49);
             this.groupBox2.TabIndex = 6;
@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(872, 561);
+            this.ClientSize = new System.Drawing.Size(464, 281);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.subPlayer);

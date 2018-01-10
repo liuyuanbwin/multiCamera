@@ -51,7 +51,7 @@
     <OutDir>.\</OutDir>
     <IntDir>.\Debug\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>VCam</TargetName>
+    <TargetName>VCam11</TargetName>
     <TargetExt>.ax</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -133,7 +133,7 @@
       <LinkDLL>true</LinkDLL>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
-      <OutputFile>VCam.ax</OutputFile>
+      <OutputFile>VCam11.ax</OutputFile>
       <ImportLibrary>.\Debug\VCam.lib</ImportLibrary>
       <AdditionalDependencies>legacy_stdio_definitions.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>.\Dll.def</ModuleDefinitionFile>

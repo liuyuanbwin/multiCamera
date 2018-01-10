@@ -62,8 +62,8 @@ m_nCurrentBitDepth(32)
 	//m_rScreen.left   = m_rScreen.top = 0;
 	//m_rScreen.right  = GetDeviceCaps(hDC, HORZRES);
 	//m_rScreen.bottom = GetDeviceCaps(hDC, VERTRES);
-	m_rScreen.left = 0;
-	m_rScreen.top = 0;
+	m_rScreen.left = 300;
+	m_rScreen.top = 300;
 	m_rScreen.right = m_rScreen.left + 640;
 	m_rScreen.bottom = m_rScreen.top + 480;
 
@@ -442,6 +442,14 @@ HRESULT CVCamPin::FillBuffer(IMediaSample *pSample)
 	BYTE *pData;
 	long cbData;
 
+	HWND doubleCameraWindow = FindWindow(NULL, "Ë«»­ÃæÖ±²¥");
+	HDC hScrDC = GetDC(doubleCameraWindow);
+	RECT llpRect;
+	GetWindowRect(doubleCameraWindow, &llpRect);
+
+
+
+
 	CheckPointer(pSample, E_POINTER);
 
 	CAutoLock cAutoLockShared(&m_cSharedState);
@@ -463,8 +471,8 @@ HRESULT CVCamPin::FillBuffer(IMediaSample *pSample)
 	//	pData[i] = rand();
 
 
-	   HDIB hDib = CopyScreenToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
-	
+	 //  HDIB hDib = CopyScreenToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
+	HDIB hDib = CopyPlayerToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
 	   if (hDib)
 	        DeleteObject(hDib);
 
@@ -522,6 +530,7 @@ HRESULT STDMETHODCALLTYPE CVCamPin::GetNumberOfCapabilities(int *piCount, int *p
 
 HRESULT STDMETHODCALLTYPE CVCamPin::GetStreamCaps(int iIndex, AM_MEDIA_TYPE **pmt, BYTE *pSCC)
 {
+	cout << "GetStreamCaps" << endl;
 	*pmt = CreateMediaType(&m_mt);
 	DECLARE_PTR(VIDEOINFOHEADER, pvi, (*pmt)->pbFormat);
 
