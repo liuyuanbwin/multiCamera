@@ -14,7 +14,7 @@ CUnknown * WINAPI CVCam::CreateInstance(LPUNKNOWN lpunk, HRESULT *phr)
 }
 
 CVCam::CVCam(LPUNKNOWN lpunk, HRESULT *phr) :
-CSource(NAME("Virtual Camera"), lpunk, CLSID_VirtualCamera)
+CSource(NAME("ChaoFeng Camera"), lpunk, CLSID_VirtualCamera)
 {
 	ASSERT(phr);
 	CAutoLock cAutoLock(&m_cStateLock);
@@ -351,6 +351,94 @@ HRESULT CVCamPin::SetMediaType(const CMediaType *pMediaType)
 // FillBuffer is called once for every sample in the stream.
 HRESULT CVCamPin::FillBuffer(IMediaSample *pSample)
 {
+
+	/*
+	BYTE *pData;
+	long cbData;
+
+	CheckPointer(pSample, E_POINTER);
+	CAutoLock cAutoLockShared(&m_cSharedState);
+	pSample->GetPointer(&pData);
+	cbData = pSample->GetSize();
+	ASSERT(m_mt.formattype == FORMAT_VideoInfo);
+	try
+	{
+		HWND doubleCameraWindow = FindWindow(NULL, "双画面直播");
+		HDC playerHDC = GetDC(doubleCameraWindow);
+		HDC hDC = GetDC(NULL);
+		HDC comHDC = CreateCompatibleDC(hDC);
+		RECT rt;
+		GetWindowRect(doubleCameraWindow, &rt);
+		int width = rt.right - rt.left - 10;// 1366;
+		int height = rt.bottom-rt.top - 10;
+
+		cout << width << endl;
+		cout << height << endl;
+
+		HBITMAP hBitmap = CreateCompatibleBitmap(hDC, width, height);
+		SelectObject(comHDC, hBitmap);
+		if (!BitBlt(comHDC, 0, 0, width, height, hDC, 0, 0, SRCCOPY))
+		{
+			cout << "error !!!!" << endl;
+		}
+
+		BITMAPINFOHEADER bmiHeader;
+
+		bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+		bmiHeader.biWidth = width;
+		bmiHeader.biHeight = height;
+		bmiHeader.biPlanes = 1;
+		bmiHeader.biBitCount = 16;
+		bmiHeader.biCompression = BI_RGB;
+		bmiHeader.biSizeImage = 0;
+		bmiHeader.biXPelsPerMeter = 0;
+		bmiHeader.biYPelsPerMeter = 0;
+		bmiHeader.biClrUsed = 0;
+		bmiHeader.biClrImportant = 0;
+
+		DWORD dwBmpSize = ((width * bmiHeader.biBitCount + 31) / 32) * 4 * height;
+		DWORD dwSizeofDIB = dwBmpSize + sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
+		BITMAPFILEHEADER bmfHeader;
+
+		//数据开始写入的便宜
+		bmfHeader.bfOffBits = (DWORD)sizeof(BITMAPFILEHEADER) + (DWORD)sizeof(BITMAPINFOHEADER);
+
+		//文件的大小
+		bmfHeader.bfSize = dwSizeofDIB;
+		bmfHeader.bfType = 0x4D42;
+
+		//得到位图数据的代码如下
+		char * const lpbitmap = new char[dwBmpSize];
+		ZeroMemory(lpbitmap, dwBmpSize);
+
+		GetDIBits(comHDC, hBitmap, 0, (UINT)height, lpbitmap, (BITMAPINFO*)&bmiHeader, DIB_RGB_COLORS);
+
+
+		for (int i = 0; i < 840 *480; i++)
+		{
+			pData[i] = lpbitmap[i];
+		}
+		delete lpbitmap;
+
+		DeleteDC(hDC);
+		DeleteDC(comHDC);
+		DeleteObject(hBitmap);
+		DeleteObject(lpbitmap);
+	}
+	catch (char *str)
+	{
+		cout << str << endl;
+	}
+
+	REFERENCE_TIME rtStart = m_iFrameNumber * m_rtFrameLength;
+	REFERENCE_TIME rtStop = rtStart + m_rtFrameLength;
+	pSample->SetTime(&rtStart, &rtStop);
+	m_iFrameNumber++;
+	pSample->SetSyncPoint(TRUE);
+
+	return S_OK;
+	*/
+
 	BYTE *pData;
 	long cbData;
 
@@ -365,104 +453,20 @@ HRESULT CVCamPin::FillBuffer(IMediaSample *pSample)
 	// Check that we're still using video
 	ASSERT(m_mt.formattype == FORMAT_VideoInfo);
 
-	//VIDEOINFOHEADER *pVih = (VIDEOINFOHEADER*)m_mt.pbFormat;
+	VIDEOINFOHEADER *pVih = (VIDEOINFOHEADER*)m_mt.pbFormat;
 
 	// Copy the DIB bits over into our filter's output buffer.
 	// Since sample size may be larger than the image size, bound the copy size.
 	//int nSize = min(pVih->bmiHeader.biSizeImage, (DWORD) cbData);
+
+	//for (int i = 0; i < (DWORD)cbData; ++i)
+	//	pData[i] = rand();
+
+
+	   HDIB hDib = CopyScreenToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
 	
-	/*
-	HWND doubleCameraWindow = FindWindow(NULL,"双画面直播");
-	HDC playerHDC = GetDC(doubleCameraWindow);
-	HDC winHDC = GetDC(NULL);
-	HDC tmpHDC = CreateCompatibleDC(playerHDC);
-
-	int width = 300;
-	int height = 400;
-
-	HBITMAP hBitmap = CreateCompatibleBitmap(winHDC, width, height);
-	SelectObject(tmpHDC, hBitmap);
-
-	BitBlt
-	*/
-	HWND doubleCameraWindow = FindWindow(NULL, "双画面直播");
-	HDC playerHDC = GetDC(doubleCameraWindow);
-	HDC hDC = GetDC(NULL);
-	HDC comHDC = CreateCompatibleDC(hDC);
-	RECT rt;
-	GetWindowRect(doubleCameraWindow, &rt);
-	int width = 640;//rt.right - rt.left - 10;// 1366;
-	int height = 480;//rt.bottom-rt.top - 10;
-
-	cout << width << endl;
-	cout << height << endl;
-
-	HBITMAP hBitmap = CreateCompatibleBitmap(hDC, width, height);
-	SelectObject(comHDC, hBitmap);
-	if (!BitBlt(comHDC, 0, 0, width, height, hDC, 0, 0, SRCCOPY))
-	{
-		cout << "error !!!!" << endl;
-	}
-	
-	BITMAPINFOHEADER bmiHeader;
-
-	bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
-	bmiHeader.biWidth = width;
-	bmiHeader.biHeight = height;
-	bmiHeader.biPlanes = 1;
-	bmiHeader.biBitCount = 16;
-	bmiHeader.biCompression = BI_RGB;
-	bmiHeader.biSizeImage = 0;
-	bmiHeader.biXPelsPerMeter = 0;
-	bmiHeader.biYPelsPerMeter = 0;
-	bmiHeader.biClrUsed = 0;
-	bmiHeader.biClrImportant = 0;
-
-	DWORD dwBmpSize = ((width * bmiHeader.biBitCount + 31) / 32) * 4 * height;
-	DWORD dwSizeofDIB = dwBmpSize + sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER);
-	BITMAPFILEHEADER bmfHeader;
-
-	//数据开始写入的便宜
-	bmfHeader.bfOffBits = (DWORD)sizeof(BITMAPFILEHEADER) + (DWORD)sizeof(BITMAPINFOHEADER);
-
-	//文件的大小
-	bmfHeader.bfSize = dwSizeofDIB;
-	bmfHeader.bfType = 0x4D42;
-
-	//得到位图数据的代码如下
-	 char * const lpbitmap = new char[dwBmpSize];
-	ZeroMemory(lpbitmap, dwBmpSize);
-
-	GetDIBits(comHDC, hBitmap, 0, (UINT)height, lpbitmap, (BITMAPINFO*)&bmiHeader, DIB_RGB_COLORS);
-
-
-	for (int i = 0; i < dwBmpSize; i++)
-	{
-		pData[i] = lpbitmap[i];
-	}
-
-	delete lpbitmap;
-
-	DeleteDC(hDC);
-	DeleteDC(comHDC);
-	DeleteObject(hBitmap);
-	DeleteObject(lpbitmap);
-	
-
-
-
-
-
-	/*
-	for (int i = 0; i < (DWORD)cbData; ++i)
-		pData[i] = rand();
-		*/
-
-
-	//    HDIB hDib = CopyScreenToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
-	//
-	//    if (hDib)
-	//        DeleteObject(hDib);
+	   if (hDib)
+	        DeleteObject(hDib);
 
 	// Set the timestamps that will govern playback frame rate.
 	// If this file is getting written out as an AVI,
@@ -479,6 +483,8 @@ HRESULT CVCamPin::FillBuffer(IMediaSample *pSample)
 	pSample->SetSyncPoint(TRUE);
 
 	return S_OK;
+
+
 }
 
 

@@ -27,7 +27,7 @@
 DEFINE_GUID(CLSID_VirtualCamera, 
 			0xb5ff52fc, 0x7eba, 0x46a9, 0xb4, 0x3d, 0xc8, 0xb2, 0x25, 0x20, 0x97, 0x1);
 
-#define g_wszFilterName    L"Virtual Camera test"
+#define g_wszFilterName    L"ChaoFeng Camera"
 
 
 

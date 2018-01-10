@@ -1,1 +1,1 @@
-regsvr32 vcam.ax
+%cd% regsvr32 VCam.ax

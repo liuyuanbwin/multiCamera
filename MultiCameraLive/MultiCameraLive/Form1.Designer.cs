@@ -34,9 +34,9 @@
             this.subCameraList = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -104,7 +104,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.mainCameraList);
             this.groupBox1.Controls.Add(this.button1);
@@ -115,6 +114,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "主画面";
             this.groupBox1.Visible = false;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(209, 16);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(25, 22);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "X";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // groupBox2
             // 
@@ -138,16 +147,6 @@
             this.button2.Text = "X";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(209, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 22);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "X";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
