@@ -14,7 +14,7 @@
     <SccProjectName />
     <SccLocalPath />
     <ProjectGuid>{37F3118C-7732-4D92-9E09-EA3B7851E85A}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -46,7 +46,7 @@
     <OutDir>.\</OutDir>
     <IntDir>.\Release\</IntDir>
     <LinkIncremental>true</LinkIncremental>
-    <TargetName>VCamR</TargetName>
+    <TargetName>VCamR1-11</TargetName>
     <TargetExt>.ax</TargetExt>
     <IncludePath>.\dshow\include\baseclasses;$(IncludePath)</IncludePath>
     <LibraryPath>.\dshow\lib;$(LibraryPath)</LibraryPath>
@@ -93,7 +93,7 @@
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <LinkDLL>true</LinkDLL>
       <SubSystem>Console</SubSystem>
-      <OutputFile>VCamR.ax</OutputFile>
+      <OutputFile>VCamR1-11.ax</OutputFile>
       <ImportLibrary>.\Release\VCam.lib</ImportLibrary>
       <AdditionalDependencies>legacy_stdio_definitions.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>.\Dll.def</ModuleDefinitionFile>

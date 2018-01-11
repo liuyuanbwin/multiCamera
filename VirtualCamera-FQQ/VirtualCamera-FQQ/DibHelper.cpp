@@ -27,14 +27,7 @@ HBITMAP CopyPlayerToBitmap(LPRECT lpRect, BYTE *pData, BITMAPINFO *pHeader, HCUR
 	RECT llpRect;
 	GetWindowRect(doubleCameraWindow, &llpRect);
 
-	cout << "画面左" << endl;
-	cout << llpRect.left << endl;
-	cout << "画面上" << endl;
-	cout << llpRect.top << endl;
-	cout << "画面宽" << endl;
-	cout << llpRect.right - llpRect.left << endl;
-	cout << "画面高" << endl;
-	cout << llpRect.bottom - llpRect.top << endl;
+
 
 
 
@@ -62,7 +55,7 @@ HBITMAP CopyPlayerToBitmap(LPRECT lpRect, BYTE *pData, BITMAPINFO *pHeader, HCUR
 	nY2 = llpRect.bottom;
 	//*/
 	// get screen resolution
-	xScrn = GetDeviceCaps(hScrDC, HORZRES);
+	xScrn =  GetDeviceCaps(hScrDC, HORZRES);
 	yScrn = GetDeviceCaps(hScrDC, VERTRES);
 
 	//make sure bitmap rectangle is visible

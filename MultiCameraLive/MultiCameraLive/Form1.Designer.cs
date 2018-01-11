@@ -34,9 +34,11 @@
             this.subCameraList = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.topButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +51,7 @@
             this.mainPlayer.Location = new System.Drawing.Point(0, 1);
             this.mainPlayer.Margin = new System.Windows.Forms.Padding(0);
             this.mainPlayer.Name = "mainPlayer";
-            this.mainPlayer.Size = new System.Drawing.Size(466, 281);
+            this.mainPlayer.Size = new System.Drawing.Size(626, 441);
             this.mainPlayer.TabIndex = 0;
             this.mainPlayer.Text = "videoSourcePlayer1";
             this.mainPlayer.VideoSource = null;
@@ -57,7 +59,7 @@
             // 
             // subPlayer
             // 
-            this.subPlayer.Location = new System.Drawing.Point(299, 146);
+            this.subPlayer.Location = new System.Drawing.Point(308, 1);
             this.subPlayer.Name = "subPlayer";
             this.subPlayer.Size = new System.Drawing.Size(317, 230);
             this.subPlayer.TabIndex = 1;
@@ -94,9 +96,9 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(110, 16);
+            this.button1.Location = new System.Drawing.Point(6, 45);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(93, 22);
+            this.button1.Size = new System.Drawing.Size(98, 22);
             this.button1.TabIndex = 4;
             this.button1.Text = "小窗口/开";
             this.button1.UseVisualStyleBackColor = true;
@@ -104,22 +106,34 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.topButton);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.mainCameraList);
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Location = new System.Drawing.Point(0, 1);
+            this.groupBox1.Location = new System.Drawing.Point(0, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(243, 50);
+            this.groupBox1.Size = new System.Drawing.Size(190, 103);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "主画面";
             this.groupBox1.Visible = false;
             // 
+            // topButton
+            // 
+            this.topButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.topButton.Location = new System.Drawing.Point(6, 73);
+            this.topButton.Name = "topButton";
+            this.topButton.Size = new System.Drawing.Size(98, 22);
+            this.topButton.TabIndex = 6;
+            this.topButton.Text = "置顶/开";
+            this.topButton.UseVisualStyleBackColor = true;
+            this.topButton.Click += new System.EventHandler(this.topButton_Click);
+            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(209, 16);
+            this.button3.Location = new System.Drawing.Point(110, 18);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(25, 22);
+            this.button3.Size = new System.Drawing.Size(70, 76);
             this.button3.TabIndex = 5;
             this.button3.Text = "X";
             this.button3.UseVisualStyleBackColor = true;
@@ -130,7 +144,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.subCameraList);
-            this.groupBox2.Location = new System.Drawing.Point(139, -14);
+            this.groupBox2.Location = new System.Drawing.Point(308, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(109, 49);
             this.groupBox2.TabIndex = 6;
@@ -148,17 +162,35 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // button4
+            // 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button4.Location = new System.Drawing.Point(0, 111);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(625, 331);
+            this.button4.TabIndex = 7;
+            this.button4.Text = "软件试用到期";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(464, 281);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(624, 441);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.subPlayer);
             this.Controls.Add(this.mainPlayer);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "双画面直播";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.closeCamera);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
@@ -180,6 +212,8 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button topButton;
+        private System.Windows.Forms.Button button4;
     }
 }
 

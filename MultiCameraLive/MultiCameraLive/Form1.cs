@@ -73,6 +73,7 @@ namespace MultiCameraLive
                 rect.Location = getPointToForm(new Point(e.Location.X - mouseDownPoint.X, e.Location.Y - mouseDownPoint.Y));
                 subPlayer.Location = rect.Location;
                 groupBox2.Location = getPointToForm(new Point(e.Location.X - mouseDownPoint.X, e.Location.Y - mouseDownPoint.Y));
+               
                 this.Refresh();
             }
         }
@@ -85,8 +86,31 @@ namespace MultiCameraLive
                 if(isDrag)
                 {
                     isDrag = false;
-                    //移动control 到放开鼠标的敌法
+                    //移动control 到放开鼠标的地方
                     subPlayer.Location = rect.Location;
+                    // subPlayer.Location = new Point(100, 100);
+
+                    Point finalPoint = rect.Location;
+                    if(rect.Location.X < 0)
+                    {
+                        finalPoint = new Point(0, finalPoint.Y);
+                    }
+                    if (rect.Location.X > 640 - 317)
+                    {
+                        finalPoint = new Point(640 - 317, finalPoint.Y);
+                    }
+                    if(rect.Location.Y < 0)
+                    {
+                        finalPoint = new Point(finalPoint.X, 0);
+                    }
+                    if (rect.Location.Y > 480 - 230)
+                    {
+                        finalPoint = new Point(finalPoint.X, 480 - 230);
+                    }
+                    Console.WriteLine("x = {0}, y = {1}", finalPoint.X, finalPoint.Y);
+                    groupBox2.Location = finalPoint;
+                    subPlayer.Location = finalPoint;
+
                     this.Refresh();
                 }
                 reset();
@@ -109,11 +133,29 @@ namespace MultiCameraLive
 
         private FilterInfoCollection videoDevices;//摄像机数组
         private Boolean isShowSubPlayer;  //是否显示小窗口
+        private Boolean isTopMost;      //是否置顶窗口
+
+        private long ConvertDateTimeToInt(System.DateTime time)
+        {
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1, 0, 0, 0, 0));
+            long t = (time.Ticks - startTime.Ticks) / 10000 / 1000;   //除10000调整为13位      
+            return t;
+        }
         //初始化摄像头
         private void InitCamera()
         {
                 isShowSubPlayer = true;
-                try
+                isTopMost = true;
+               
+            DateTime time = DateTime.Now;
+            long ts = ConvertDateTimeToInt(time);
+
+            long startTime = 1515662760;
+            if(ts - startTime > 60*60*24*3)
+            {
+                button4.Visible = true;
+            }
+            try
                 {
                     videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
                     int i = 1;
@@ -288,6 +330,20 @@ namespace MultiCameraLive
         private void mainPlayer_DoubleClick(object sender, EventArgs e)
         {
             groupBox1.Visible = true;
+        }
+
+        private void topButton_Click(object sender, EventArgs e)
+        {
+            isTopMost = !isTopMost;
+            this.TopMost = isTopMost;
+            if (isTopMost)
+            {
+                topButton.Text = "置顶/开";
+            }
+            else
+            {
+                topButton.Text = "置顶/关";
+            }
         }
     }
 }
