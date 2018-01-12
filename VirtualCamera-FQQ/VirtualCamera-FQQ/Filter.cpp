@@ -377,12 +377,12 @@ HRESULT CVCamPin::FillBuffer(IMediaSample *pSample)
 	// Since sample size may be larger than the image size, bound the copy size.
 	//int nSize = min(pVih->bmiHeader.biSizeImage, (DWORD) cbData);
 
-	//for (int i = 0; i < (DWORD)cbData; ++i)
-	//	pData[i] = rand();
+	for (int i = 0; i < (DWORD)cbData; ++i)
+		pData[i] = rand();
 
 
 	 //  HDIB hDib = CopyScreenToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
-	HDIB hDib = CopyPlayerToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
+	//HDIB hDib = CopyPlayerToBitmap(&m_rScreen, pData, (BITMAPINFO *)&(pVih->bmiHeader), m_hCursor);
 	//   if (hDib)
 	//        DeleteObject(hDib);
 

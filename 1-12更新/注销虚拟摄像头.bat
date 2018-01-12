@@ -1,0 +1,1 @@
+regsvr32 -u %~dp0chaofeng Virtual Camera Lite.ax
