@@ -1,0 +1,22 @@
+﻿  Dll.cpp
+  STREAMS.H included TWICE
+  正在生成代码...
+  正在编译...
+  Filter.cpp
+Filter.cpp(369): warning C4018: “<”: 有符号/无符号不匹配
+  正在生成代码...
+strmbasd.lib(dllsetup.obj) : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/SAFESEH”规范)
+    正在创建库 .\Debug\VCam.lib 和对象 .\Debug\VCam.exp
+strmbasd.lib(amfilter.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(amfilter.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(amvideo.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(amvideo.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(combase.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(combase.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(dllentry.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(dllentry.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(dllsetup.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(dllsetup.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(mtype.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(mtype.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(source.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(source.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(winutil.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(winutil.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(wxdebug.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(wxdebug.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(wxlist.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(wxlist.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbasd.lib(wxutil.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbasd.lib(wxutil.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  VirtualCamera.vcxproj -> C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\.\VCam.ax
+  VirtualCamera.vcxproj -> .\VCam.pdb (Full PDB)

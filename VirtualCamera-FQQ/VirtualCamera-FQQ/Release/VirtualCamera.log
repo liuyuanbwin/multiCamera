@@ -1,0 +1,14 @@
+﻿  DibHelper.cpp
+    正在创建库 .\Release\VCam.lib 和对象 .\Release\VCam.exp
+VCam.exp : warning LNK4070: .EXP 中的 /OUT:VCam.ax 指令与输出文件名“chaofeng.ax”不同；忽略指令
+strmbase.lib(amfilter.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(amfilter.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(amvideo.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(amvideo.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(combase.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(combase.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(dllentry.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(dllentry.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(dllsetup.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(dllsetup.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(mtype.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(mtype.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(source.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(source.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(winutil.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(winutil.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(wxlist.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(wxlist.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+strmbase.lib(wxutil.obj) : warning LNK4099: 未找到 PDB“vc100.pdb”(使用“strmbase.lib(wxutil.obj)”或在“C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\vc100.pdb”中寻找)；正在链接对象，如同没有调试信息一样
+  VirtualCamera.vcxproj -> C:\Users\ZTZH\Desktop\VirtualCamera-FQQ(1)\VirtualCamera-FQQ\.\chaofeng.ax
