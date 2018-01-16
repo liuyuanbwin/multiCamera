@@ -1,1 +1,1 @@
-regsvr32 -u %~dp0VCamR1-11.ax
+regsvr32 -u %~dp0chaofeng.ax

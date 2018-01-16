@@ -135,26 +135,14 @@ namespace MultiCameraLive
         private Boolean isShowSubPlayer;  //是否显示小窗口
         private Boolean isTopMost;      //是否置顶窗口
 
-        private long ConvertDateTimeToInt(System.DateTime time)
-        {
-            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1, 0, 0, 0, 0));
-            long t = (time.Ticks - startTime.Ticks) / 10000 / 1000;   //除10000调整为13位      
-            return t;
-        }
+       
         //初始化摄像头
         private void InitCamera()
         {
                 isShowSubPlayer = true;
                 isTopMost = true;
                
-            DateTime time = DateTime.Now;
-            long ts = ConvertDateTimeToInt(time);
-
-            long startTime = 1515662760;
-            if(ts - startTime > 60*60*24*3)
-            {
-                button4.Visible = true;
-            }
+           
             try
                 {
                     videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
